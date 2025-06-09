@@ -1,0 +1,14 @@
+import pandas as pd
+df = pd.read_csv("dengue_assignment.csv")
+df_2016=df[df['year']==2016]
+print(df_2016)
+
+grouped=df_2016.groupby('week').size()
+print(grouped)
+
+import matplotlib.pyplot as plt
+
+plt.bar(grouped.index, grouped.values)
+plt.xlabel('Week of the Year')
+plt.ylabel('Weekly Cases')
+plt.show()
